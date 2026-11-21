@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>DominoX</title>
-  <link rel="icon" type="image\png" href="logo.png" />
+  <link rel="icon" type="image/png" href="logo.png" />
   <style>
     :root {
       --bg-base: #070b14;
@@ -124,7 +124,7 @@
       width: 100%;
       max-width: 1040px;
       min-height: 100vh;
-      padding: 12px;
+      padding: 10px;
       display: flex;
       flex-direction: column;
     }
@@ -183,15 +183,15 @@
     .btn-ios {
       border: none;
       border-radius: var(--radius-md);
-      padding: 13px 20px;
-      font-size: 0.95rem;
+      padding: 12px 18px;
+      font-size: 0.92rem;
       font-weight: 600;
       cursor: pointer;
       transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s, background 0.2s;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       color: #fff;
     }
 
@@ -404,15 +404,15 @@
     }
 
     .avatar-circle {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: linear-gradient(135deg, #0a84ff, #5e5ce6);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 0.98rem;
       border: 2px solid rgba(255, 255, 255, 0.35);
       flex-shrink: 0;
     }
@@ -420,14 +420,14 @@
     .koin-pill {
       background: rgba(255, 159, 10, 0.16);
       border: 1px solid rgba(255, 159, 10, 0.45);
-      padding: 8px 14px;
+      padding: 7px 13px;
       border-radius: 999px;
       font-weight: 700;
       color: #ffd60a;
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
     }
 
     .main-content {
@@ -497,60 +497,69 @@
        DOMINO TILES & SKINS
     ========================================================= */
     .domino-tile {
-      width: 44px;
-      height: 84px;
-      border-radius: 8px;
+      width: 38px;
+      height: 72px;
+      border-radius: 7px;
       display: inline-flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 4px;
+      padding: 3.5px;
       position: relative;
       user-select: none;
       transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
       flex-shrink: 0;
     }
 
+    @media (min-width: 640px) {
+      .domino-tile {
+        width: 44px;
+        height: 84px;
+        border-radius: 8px;
+        padding: 4px;
+      }
+    }
+
     .domino-tile.horizontal {
-      width: 84px;
-      height: 44px;
+      width: 72px;
+      height: 38px;
       flex-direction: row;
     }
 
-    /* Responsive Board Tile Size (Agar belokan S muat utuh di HP & Desktop) */
+    /* Board Tile Size (Proporsional agar belokan S tidak bertumpuk) */
     .domino-tile.board-tile {
-      width: 24px;
-      height: 46px;
+      width: 20px;
+      height: 38px;
       border-radius: 4px;
-      padding: 2.5px;
+      padding: 2px;
       position: absolute;
       transform: translate(-50%, -50%);
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
     }
 
     .domino-tile.board-tile.horizontal {
-      width: 46px;
-      height: 24px;
+      width: 38px;
+      height: 20px;
     }
 
     .domino-tile.board-tile .pip {
-      width: 3.5px;
-      height: 3.5px;
+      width: 3px;
+      height: 3px;
     }
 
     @media (min-width: 640px) {
       .domino-tile.board-tile {
-        width: 28px;
-        height: 54px;
+        width: 26px;
+        height: 50px;
         border-radius: 5px;
-        padding: 3px;
+        padding: 2.5px;
       }
       .domino-tile.board-tile.horizontal {
-        width: 54px;
-        height: 28px;
+        width: 50px;
+        height: 26px;
       }
       .domino-tile.board-tile .pip {
-        width: 4px;
-        height: 4px;
+        width: 3.8px;
+        height: 3.8px;
       }
     }
 
@@ -575,9 +584,16 @@
     }
 
     .pip {
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
+    }
+
+    @media (min-width: 640px) {
+      .pip {
+        width: 6px;
+        height: 6px;
+      }
     }
 
     /* Skin 1: Classic Ivory */
@@ -671,24 +687,24 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      min-height: calc(100vh - 24px);
+      min-height: calc(100vh - 20px);
     }
 
     .game-hud {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 14px;
+      padding: 8px 12px;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
       border-radius: 18px;
     }
 
     .score-pill {
       background: rgba(0, 0, 0, 0.42);
-      padding: 5px 11px;
+      padding: 4px 10px;
       border-radius: 10px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       border: 1px solid rgba(255, 255, 255, 0.14);
     }
@@ -697,9 +713,9 @@
     .classic-felt-table {
       flex: 1;
       position: relative;
-      border-radius: 28px;
+      border-radius: 26px;
       background:
-        radial-gradient(ellipse at 50% 45%, #23876e 0%, #125c4a 52%, #09352b 100%);
+        radial-gradient(ellipse at 50% 44%, #23876e 0%, #125c4a 52%, #09352b 100%);
       border: 3px solid rgba(255, 215, 0, 0.28);
       box-shadow:
         inset 0 0 60px rgba(0, 0, 0, 0.55),
@@ -708,23 +724,23 @@
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
-      min-height: 540px;
+      min-height: 550px;
       padding: 10px;
     }
 
     .classic-felt-table::before {
       content: "";
       position: absolute;
-      inset: 12px;
+      inset: 10px;
       border: 1.5px solid rgba(255, 230, 150, 0.14);
-      border-radius: 22px;
+      border-radius: 20px;
       pointer-events: none;
     }
 
     /* Center Table Watermark */
     .table-watermark {
       position: absolute;
-      top: 47%;
+      top: 44%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
@@ -734,7 +750,7 @@
     }
 
     .table-watermark-title {
-      font-size: 2.1rem;
+      font-size: 2rem;
       font-weight: 900;
       letter-spacing: 2px;
       color: rgba(0, 0, 0, 0.22);
@@ -746,8 +762,8 @@
       margin-top: 4px;
       padding: 3px 12px;
       border-radius: 999px;
-      background: rgba(0, 0, 0, 0.22);
-      color: rgba(255, 255, 255, 0.65);
+      background: rgba(0, 0, 0, 0.24);
+      color: rgba(255, 255, 255, 0.72);
       font-size: 0.72rem;
       font-weight: 600;
       white-space: nowrap;
@@ -759,10 +775,10 @@
       z-index: 5;
       display: flex;
       align-items: center;
-      gap: 7px;
-      padding: 5px 9px;
+      gap: 6px;
+      padding: 4px 8px;
       border-radius: 14px;
-      background: rgba(8, 22, 20, 0.62);
+      background: rgba(8, 22, 20, 0.65);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.15);
       transition: all 0.25s ease;
@@ -778,50 +794,42 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      min-height: 54px;
+      min-height: 48px;
     }
 
     .seat-middle-row {
       flex: 1;
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       position: relative;
-      min-height: 265px;
-      padding-top: 4px;
-    }
-
-    @media (min-width: 640px) {
-      .seat-middle-row {
-        align-items: center;
-        padding-top: 0;
-      }
+      min-height: 270px;
     }
 
     .seat-side {
       flex-direction: column;
       text-align: center;
-      min-width: 72px;
-      padding: 5px 6px;
+      min-width: 64px;
+      padding: 4px 5px;
     }
 
     @media (min-width: 640px) {
       .seat-side {
-        min-width: 96px;
+        min-width: 92px;
         padding: 6px 10px;
       }
     }
 
     .seat-avatar {
-      width: 38px;
-      height: 38px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: linear-gradient(135deg, #1c3d5a, #0f2027);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       position: relative;
     }
 
@@ -829,9 +837,9 @@
       background: linear-gradient(180deg, #ff453a 0%, #b81d13 100%);
       color: #fff;
       font-weight: 800;
-      font-size: 0.78rem;
-      min-width: 22px;
-      height: 24px;
+      font-size: 0.74rem;
+      min-width: 20px;
+      height: 22px;
       padding: 0 5px;
       border-radius: 6px;
       display: inline-flex;
@@ -848,7 +856,7 @@
       transform: translateX(-50%);
       background: #ff9f0a;
       color: #1c1c1e;
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       font-weight: 800;
       padding: 1px 6px;
       border-radius: 999px;
@@ -861,38 +869,28 @@
       inset: 0;
       pointer-events: none;
       z-index: 3;
+      overflow: hidden;
     }
 
     .snake-board-canvas {
       position: relative;
       width: 100%;
       height: 100%;
+      transform-origin: center center;
     }
 
-    /* Bottom Player Dock Inside Table */
+    /* Bottom Player Dock Inside Table (Clean 1-Row Hand on Mobile & Desktop) */
     .table-bottom-dock {
       position: relative;
       z-index: 6;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
     }
 
-    .auto-notice-bar {
-      text-align: center;
-      font-size: 0.76rem;
-      font-weight: 600;
-      color: #a8f0c6;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    .player-control-strip {
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 10px;
-    }
-
-    .bottom-player-row {
-      display: flex;
-      align-items: flex-end;
       justify-content: space-between;
       gap: 8px;
       flex-wrap: wrap;
@@ -902,25 +900,33 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 10px;
-      border-radius: 16px;
-      background: rgba(8, 20, 18, 0.68);
+      padding: 5px 10px;
+      border-radius: 14px;
+      background: rgba(8, 20, 18, 0.72);
       border: 1px solid rgba(255, 255, 255, 0.18);
     }
 
     .self-profile-box.active-turn {
       border-color: #30d158;
-      box-shadow: 0 0 18px rgba(48, 209, 88, 0.5);
+      box-shadow: 0 0 16px rgba(48, 209, 88, 0.5);
     }
 
     .hand-tiles {
-      flex: 1;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 6px;
-      min-height: 88px;
+      flex-wrap: nowrap;
+      gap: 5px;
+      min-height: 78px;
+      padding-top: 8px;
+    }
+
+    @media (min-width: 640px) {
+      .hand-tiles {
+        gap: 8px;
+        min-height: 90px;
+      }
     }
 
     .hand-tiles .domino-tile {
@@ -946,10 +952,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       padding: 6px 10px;
       border-radius: 12px;
-      background: rgba(5, 16, 14, 0.72);
+      background: rgba(5, 16, 14, 0.75);
       border: 1px solid rgba(255, 255, 255, 0.1);
       flex-wrap: wrap;
     }
@@ -1124,12 +1130,15 @@
             </div>
           </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
           <div class="koin-pill">
             <span>🪙</span>
             <span id="hdr-koin">50K</span>
           </div>
-          <button class="btn-ios btn-danger" style="padding: 8px 12px; font-size: 0.8rem;" onclick="handleLogout()">
+          <button class="btn-ios btn-glass sound-toggle-btn" style="padding: 8px 11px; font-size: 0.8rem;" onclick="toggleBacksound()">
+            🔊 Musik
+          </button>
+          <button class="btn-ios btn-danger" style="padding: 8px 11px; font-size: 0.8rem;" onclick="handleLogout()">
             Keluar
           </button>
         </div>
@@ -1274,14 +1283,19 @@
     <div id="view-game" class="hidden">
       <!-- Top HUD -->
       <div class="game-hud liquid-glass">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <span style="font-weight: 800; color: #64d2ff;" id="game-room-badge">DMX-0000</span>
-          <span style="font-size: 0.8rem; color: var(--text-secondary);" id="game-mode-badge">Solo 4 Pemain</span>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-weight: 800; color: #64d2ff; font-size: 0.88rem;" id="game-room-badge">DMX-0000</span>
+          <span style="font-size: 0.76rem; color: var(--text-secondary);" id="game-mode-badge">Solo 4P</span>
         </div>
-        <div id="game-scoreboard" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
-        <button class="btn-ios btn-danger" style="padding: 6px 12px; font-size: 0.78rem;" onclick="quitGame()">
-          Keluar Meja
-        </button>
+        <div id="game-scoreboard" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <button class="btn-ios btn-glass sound-toggle-btn" style="padding: 5px 10px; font-size: 0.75rem;" onclick="toggleBacksound()">
+            🔊 Musik
+          </button>
+          <button class="btn-ios btn-danger" style="padding: 5px 10px; font-size: 0.75rem;" onclick="quitGame()">
+            Keluar Meja
+          </button>
+        </div>
       </div>
 
       <!-- Classic Green Domino Table -->
@@ -1306,30 +1320,32 @@
           <div id="seat-right-container"></div>
         </div>
 
-        <!-- Bottom Player Dock -->
+        <!-- Bottom Player Dock (Clean 1-Row Hand + Profile + Pass) -->
         <div class="table-bottom-dock">
-          <div class="auto-notice-bar">
-            <span id="turn-banner-text">✓ Kartu terakhir akan dikeluarkan otomatis!</span>
-            <button class="btn-ios btn-glass" id="btn-pass" style="padding: 5px 14px; font-size: 0.78rem; border-radius: 999px;" onclick="playerPass()">
-              Lewat (Pass)
-            </button>
-          </div>
+          <!-- Player Cards in 1 Crisp Horizontal Row -->
+          <div class="hand-tiles" id="player-hand"></div>
 
-          <div class="bottom-player-row">
-            <!-- Bottom-Left Self Profile -->
+          <!-- Profile + Auto Notice + Pass Button Strip -->
+          <div class="player-control-strip">
             <div class="self-profile-box" id="self-profile-box">
-              <div class="avatar-circle" id="self-table-avatar">D</div>
+              <div class="avatar-circle" id="self-table-avatar" style="width:34px; height:34px; font-size:0.85rem;">D</div>
               <div>
-                <div style="font-weight: 700; font-size: 0.88rem;" id="self-table-name">Anda</div>
-                <div style="margin: 2px 0;">
-                  <span id="self-table-rank" class="rank-badge rank-warrior" style="font-size:0.62rem; padding:2px 7px;">Member Warrior</span>
+                <div style="font-weight: 700; font-size: 0.82rem; display:flex; align-items:center; gap:6px;">
+                  <span id="self-table-name">Anda</span>
+                  <span style="font-size: 0.72rem; color: #ffd60a;" id="self-table-koin">🪙 50K</span>
                 </div>
-                <div style="font-size: 0.76rem; color: #ffd60a; font-weight: 700;" id="self-table-koin">🪙 50K</div>
+                <div style="margin-top: 2px;">
+                  <span id="self-table-rank" class="rank-badge rank-warrior" style="font-size:0.58rem; padding:1.5px 6px;">Member Warrior</span>
+                </div>
               </div>
             </div>
 
-            <!-- Player Hand -->
-            <div class="hand-tiles" id="player-hand"></div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span id="turn-banner-text" style="font-size: 0.7rem; color: #a8f0c6; display:none;">✓ Auto kartu terakhir</span>
+              <button class="btn-ios btn-glass" id="btn-pass" style="padding: 8px 16px; font-size: 0.8rem; border-radius: 999px;" onclick="playerPass()">
+                Lewat (Pass)
+              </button>
+            </div>
           </div>
 
           <!-- Bottom Pip Counter Bar (0 to 6) -->
@@ -1348,6 +1364,174 @@
   </div>
 
   <script>
+    /* =========================================================
+       WEB AUDIO ENGINE: CHILL LOUNGE BACKSOUND & DOMINO SFX
+    ========================================================= */
+    const SoundEngine = (() => {
+      let ctx = null;
+      let isMuted = false;
+      let bgTimer = null;
+      let stepIndex = 0;
+      let started = false;
+
+      // Progresi Akor Santai (Cmaj7 -> Am7 -> Fmaj7 -> G6)
+      const CHORDS = [
+        [261.63, 329.63, 392.00, 493.88], // Cmaj7
+        [220.00, 261.63, 329.63, 392.00], // Am7
+        [174.61, 220.00, 261.63, 329.63], // Fmaj7
+        [196.00, 246.94, 293.66, 329.63]  // G6
+      ];
+
+      // Nada melodi kalimba pentatonik lembut
+      const MELODY = [
+        523.25, 659.25, 587.33, 523.25,
+        493.88, 523.25, 659.25, 783.99,
+        659.25, 587.33, 523.25, 440.00,
+        493.88, 587.33, 659.25, 523.25
+      ];
+
+      function initContext() {
+        if (!ctx) {
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          if (AudioCtx) ctx = new AudioCtx();
+        }
+        if (ctx && ctx.state === "suspended") {
+          ctx.resume();
+        }
+      }
+
+      function playWarmNote(freq, duration, volume, type = "sine", delay = 0) {
+        if (!ctx || isMuted) return;
+        const now = ctx.currentTime + delay;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(volume, now + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + duration + 0.05);
+      }
+
+      function tickBacksound() {
+        if (!ctx || isMuted) return;
+        if (ctx.state === "suspended") ctx.resume();
+
+        // Mainkan akor lembut setiap 4 ketukan (2.2 detik)
+        if (stepIndex % 4 === 0) {
+          const chordIdx = Math.floor(stepIndex / 4) % CHORDS.length;
+          const chord = CHORDS[chordIdx];
+          chord.forEach((freq, i) => {
+            playWarmNote(freq, 2.3, 0.024, "triangle", i * 0.04);
+          });
+          // Nada bass hangat
+          playWarmNote(chord[0] / 2, 2.1, 0.032, "sine", 0);
+        }
+
+        // Petikan melodi kalimba tiap ketukan (550ms)
+        const note = MELODY[stepIndex % MELODY.length];
+        if (stepIndex % 2 === 0 || Math.random() > 0.35) {
+          playWarmNote(note, 0.75, 0.022, "sine", 0.02);
+        }
+
+        stepIndex++;
+      }
+
+      function start() {
+        initContext();
+        if (started) return;
+        started = true;
+        tickBacksound();
+        bgTimer = setInterval(tickBacksound, 560);
+      }
+
+      function toggleMute() {
+        initContext();
+        if (!started) start();
+        isMuted = !isMuted;
+        updateButtons();
+        return !isMuted;
+      }
+
+      function updateButtons() {
+        document.querySelectorAll(".sound-toggle-btn").forEach(btn => {
+          btn.textContent = isMuted ? "🔇 Musik" : "🔊 Musik";
+        });
+      }
+
+      // SFX 1: Ketukan batu domino saat turun ke meja
+      function playTileClack() {
+        initContext();
+        if (!ctx || isMuted) return;
+        const now = ctx.currentTime;
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(340, now);
+        osc.frequency.exponentialRampToValueAtTime(110, now + 0.075);
+
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.09);
+
+        // Kilau klik tinggi
+        playWarmNote(1280, 0.06, 0.05, "sine", 0.01);
+      }
+
+      // SFX 2: Notifikasi lembut saat giliran pemain
+      function playTurnChime() {
+        if (!ctx || isMuted) return;
+        playWarmNote(587.33, 0.25, 0.045, "sine", 0);
+        playWarmNote(880.00, 0.35, 0.045, "sine", 0.09);
+      }
+
+      // SFX 3: Suara Pass / Lewat
+      function playPassTap() {
+        if (!ctx || isMuted) return;
+        playWarmNote(185, 0.14, 0.06, "triangle", 0);
+      }
+
+      // SFX 4: Kemenangan Ronde / Pertandingan
+      function playWinFanfare() {
+        if (!ctx || isMuted) return;
+        const notes = [523.25, 659.25, 783.99, 1046.50];
+        notes.forEach((n, idx) => {
+          playWarmNote(n, 0.45, 0.06, "triangle", idx * 0.1);
+        });
+      }
+
+      return {
+        start,
+        toggleMute,
+        playTileClack,
+        playTurnChime,
+        playPassTap,
+        playWinFanfare
+      };
+    })();
+
+    // Auto-start backsound pada sentuhan / klik pertama user
+    ["pointerdown", "keydown"].forEach(evt => {
+      window.addEventListener(evt, () => SoundEngine.start(), { once: true });
+    });
+
+    function toggleBacksound() {
+      const active = SoundEngine.toggleMute();
+      showToast(active ? "🔊 Backsound & Efek Suara Aktif" : "🔇 Suara Dimatikan");
+    }
+
     /* =========================================================
        DATA & KONFIGURASI RANK MEMBER (7 TINGKATAN)
     ========================================================= */
@@ -1425,7 +1609,7 @@
       el.textContent = msg;
       el.classList.remove("hidden");
       clearTimeout(el._t);
-      el._t = setTimeout(() => el.classList.add("hidden"), 2600);
+      el._t = setTimeout(() => el.classList.add("hidden"), 2500);
     }
 
     /* =========================================================
@@ -1440,6 +1624,7 @@
 
     function handleRegister(e) {
       e.preventDefault();
+      SoundEngine.start();
       const username = document.getElementById("reg-username").value.trim().toLowerCase();
       const fullName = document.getElementById("reg-fullname").value.trim();
       const phone = document.getElementById("reg-phone").value.trim();
@@ -1471,6 +1656,7 @@
 
     function handleLogin(e) {
       e.preventDefault();
+      SoundEngine.start();
       const username = document.getElementById("login-username").value.trim().toLowerCase();
       const password = document.getElementById("login-password").value;
 
@@ -1578,6 +1764,7 @@
       currentUser.activeSkin = skin.id;
       saveCurrentUser();
       renderShop();
+      SoundEngine.playWinFanfare();
       showToast(`Skin ${skin.name} berhasil dibeli & dipakai!`);
     }
 
@@ -1585,6 +1772,7 @@
       currentUser.activeSkin = skinId;
       saveCurrentUser();
       renderShop();
+      SoundEngine.playTileClack();
       showToast("Tampilan batu domino diperbarui.");
     }
 
@@ -1751,7 +1939,7 @@
     }
 
     /* =========================================================
-       DOMINO ENGINE & ADAPTIVE SNAKE BOARD LAYOUT
+       DOMINO ENGINE & COLLISION-FREE SNAKE BOARD LAYOUT
     ========================================================= */
     function createDeck() {
       const deck = [];
@@ -1788,6 +1976,7 @@
     }
 
     function startGameMatch() {
+      SoundEngine.start();
       document.getElementById("view-waiting").classList.add("hidden");
       document.getElementById("view-game").classList.remove("hidden");
 
@@ -1847,7 +2036,7 @@
         p.passedLast = false;
       });
 
-      // Pembuka jalan: Pemegang balak tertinggi (6-6 turun ke 0-0) memulai giliran pertama
+      // Pembuka jalan: Pemegang balak tertinggi (6-6 turun ke 0-0) mulai lebih dulu
       let starter = 0;
       let highestDouble = -1;
       gameState.players.forEach((p, idx) => {
@@ -1861,11 +2050,11 @@
 
       gameState.turnIndex = starter;
       renderGameArena();
+      if (starter === 0) SoundEngine.playTurnChime();
       checkNextTurn();
     }
 
     function isTilePlayable(tile) {
-      // Pada giliran pertama (meja kosong), pembuka jalan HANYA boleh mengeluarkan kartu balak (0-0 s/d 6-6)
       if (gameState.board.length === 0) {
         const starterHand = gameState.players[gameState.turnIndex].hand;
         const hasDouble = starterHand.some(([x, y]) => x === y);
@@ -1885,7 +2074,7 @@
         .filter(({ tile }) => isTilePlayable(tile));
     }
 
-    /* Responsive Snake / S-Curve Board Renderer (Auto-bends inside mobile & desktop screens) */
+    /* Collision-Free Snake / S-Curve Board Renderer */
     function renderSnakeBoard() {
       const canvas = document.getElementById("snake-board-canvas");
       const wrapper = document.getElementById("snake-board-wrapper");
@@ -1895,27 +2084,26 @@
       }
 
       const W = wrapper.clientWidth || 320;
-      const H = wrapper.clientHeight || 265;
+      const H = wrapper.clientHeight || 270;
       const isDesktop = window.innerWidth >= 640;
 
-      // Dimensi batu domino di papan sesuai CSS (.board-tile)
-      const shortSide = isDesktop ? 28 : 24;
-      const longSide = isDesktop ? 54 : 46;
+      const shortSide = isDesktop ? 26 : 20;
+      const longSide = isDesktop ? 50 : 38;
       const halfS = shortSide / 2;
       const halfL = longSide / 2;
-      const gap = 2;
+      const gap = 2.5;
 
       const cx = W / 2;
       const cy = H / 2;
 
-      // Batas kiri & kanan aman agar belokan S tidak pernah keluar layar
-      const sideMargin = isDesktop ? 105 : 22;
+      // Area aman di antara seat kiri & seat kanan
+      const sideMargin = isDesktop ? 105 : 70;
       const minX = sideMargin + halfL;
-      const maxX = W - sideMargin - halfL;
+      const maxX = Math.max(minX + 60, W - sideMargin - halfL);
 
       const placed = [];
 
-      // 1. Batu pertama (Root) di tengah meja
+      // 1. Batu Pembuka (Root) di tengah meja
       const root = gameState.board[gameState.rootIndex];
       const rootIsDouble = root.left === root.right;
       placed.push({
@@ -1924,137 +2112,152 @@
         skin: root.skin,
         isHorizontal: !rootIsDouble,
         x: cx,
-        y: cy
+        y: cy,
+        hw: rootIsDouble ? halfS : halfL,
+        hh: rootIsDouble ? halfL : halfS
       });
 
-      // 2. Cabang Kanan (Timur -> belok Selatan -> belok Barat)
+      // 2. Cabang Kanan: E -> S (3 langkah agar tidak menumpuk dengan baris tengah) -> W
       let rx = cx;
       let ry = cy;
-      let rPrevHalfW = rootIsDouble ? halfS : halfL;
-      let rPrevHalfH = rootIsDouble ? halfL : halfS;
+      let rPrevHW = rootIsDouble ? halfS : halfL;
+      let rPrevHH = rootIsDouble ? halfL : halfS;
       let rDir = "E";
+      let rPrevDir = "E";
       let rDownSteps = 0;
 
       for (let i = gameState.rootIndex + 1; i < gameState.board.length; i++) {
         const t = gameState.board[i];
         const isDbl = t.left === t.right;
 
-        if (rDir === "E" && (rx + rPrevHalfW + longSide + gap > maxX)) {
+        if (rDir === "E" && (rx + rPrevHW + longSide + gap > maxX)) {
           rDir = "S";
           rDownSteps = 0;
-        } else if (rDir === "S" && rDownSteps >= 2) {
+        } else if (rDir === "S" && rDownSteps >= 3) {
           rDir = "W";
-        } else if (rDir === "W" && (rx - rPrevHalfW - longSide - gap < minX)) {
-          rDir = "N";
         }
 
+        let isHoriz, hw, hh, first, second;
         if (rDir === "E") {
-          const isHoriz = !isDbl;
-          const halfW = isHoriz ? halfL : halfS;
-          const halfH = isHoriz ? halfS : halfL;
-          rx += rPrevHalfW + halfW + gap;
-          placed.push({ first: t.left, second: t.right, skin: t.skin, isHorizontal: isHoriz, x: rx, y: ry });
-          rPrevHalfW = halfW;
-          rPrevHalfH = halfH;
+          isHoriz = !isDbl;
+          hw = isHoriz ? halfL : halfS;
+          hh = isHoriz ? halfS : halfL;
+          rx += rPrevHW + gap + hw;
+          first = t.left;
+          second = t.right;
         } else if (rDir === "S") {
-          const isHoriz = isDbl;
-          const halfW = isHoriz ? halfL : halfS;
-          const halfH = isHoriz ? halfS : halfL;
-          if (rDownSteps === 0) {
-            rx += rPrevHalfW - halfW;
+          isHoriz = isDbl;
+          hw = isHoriz ? halfL : halfS;
+          hh = isHoriz ? halfS : halfL;
+          if (rPrevDir === "E") {
+            // Sejajar sisi kanan kartu sudut
+            rx = rx + rPrevHW - hw;
           }
-          ry += rPrevHalfH + halfH + gap;
-          placed.push({ first: t.left, second: t.right, skin: t.skin, isHorizontal: isHoriz, x: rx, y: ry });
-          rPrevHalfW = halfW;
-          rPrevHalfH = halfH;
+          ry += rPrevHH + gap + hh;
+          first = t.left;
+          second = t.right;
           rDownSteps++;
-        } else if (rDir === "W") {
-          const isHoriz = !isDbl;
-          const halfW = isHoriz ? halfL : halfS;
-          const halfH = isHoriz ? halfS : halfL;
-          if (rDownSteps > 0) {
-            ry += rPrevHalfH - halfH;
-            rDownSteps = 0;
+        } else {
+          // rDir === "W" (berbelok ke kiri di baris bawah)
+          isHoriz = !isDbl;
+          hw = isHoriz ? halfL : halfS;
+          hh = isHoriz ? halfS : halfL;
+          if (rPrevDir === "S") {
+            // Sejajar sisi bawah kartu sudut
+            ry = ry + rPrevHH - hh;
           }
-          rx -= rPrevHalfW + halfW + gap;
-          placed.push({ first: t.right, second: t.left, skin: t.skin, isHorizontal: isHoriz, x: rx, y: ry });
-          rPrevHalfW = halfW;
-          rPrevHalfH = halfH;
-        } else if (rDir === "N") {
-          const isHoriz = isDbl;
-          const halfW = isHoriz ? halfL : halfS;
-          const halfH = isHoriz ? halfS : halfL;
-          ry -= rPrevHalfH + halfH + gap;
-          placed.push({ first: t.right, second: t.left, skin: t.skin, isHorizontal: isHoriz, x: rx, y: ry });
-          rPrevHalfW = halfW;
-          rPrevHalfH = halfH;
+          rx -= rPrevHW + gap + hw;
+          first = t.right;
+          second = t.left;
         }
+
+        placed.push({ first, second, skin: t.skin, isHorizontal: isHoriz, x: rx, y: ry, hw, hh });
+        rPrevHW = hw;
+        rPrevHH = hh;
+        rPrevDir = rDir;
       }
 
-      // 3. Cabang Kiri (Barat -> belok Utara -> belok Timur)
+      // 3. Cabang Kiri: W -> N (3 langkah agar tidak menumpuk dengan baris tengah) -> E
       let lx = cx;
       let ly = cy;
-      let lPrevHalfW = rootIsDouble ? halfS : halfL;
-      let lPrevHalfH = rootIsDouble ? halfL : halfS;
+      let lPrevHW = rootIsDouble ? halfS : halfL;
+      let lPrevHH = rootIsDouble ? halfL : halfS;
       let lDir = "W";
+      let lPrevDir = "W";
       let lUpSteps = 0;
 
       for (let i = gameState.rootIndex - 1; i >= 0; i--) {
         const t = gameState.board[i];
         const isDbl = t.left === t.right;
 
-        if (lDir === "W" && (lx - lPrevHalfW - longSide - gap < minX)) {
+        if (lDir === "W" && (lx - lPrevHW - longSide - gap < minX)) {
           lDir = "N";
           lUpSteps = 0;
-        } else if (lDir === "N" && lUpSteps >= 2) {
+        } else if (lDir === "N" && lUpSteps >= 3) {
           lDir = "E";
-        } else if (lDir === "E" && (lx + lPrevHalfW + longSide + gap > maxX)) {
-          lDir = "S";
         }
 
+        let isHoriz, hw, hh, first, second;
         if (lDir === "W") {
-          const isHoriz = !isDbl;
-          const halfW = isHoriz ? halfL : halfS;
-          const halfH = isHoriz ? halfS : halfL;
-          lx -= lPrevHalfW + halfW + gap;
-          placed.push({ first: t.left, second: t.right, skin: t.skin, isHorizontal: isHoriz, x: lx, y: ly });
-          lPrevHalfW = halfW;
-          lPrevHalfH = halfH;
+          isHoriz = !isDbl;
+          hw = isHoriz ? halfL : halfS;
+          hh = isHoriz ? halfS : halfL;
+          lx -= lPrevHW + gap + hw;
+          first = t.left;
+          second = t.right;
         } else if (lDir === "N") {
-          const isHoriz = isDbl;
-          const halfW = isHoriz ? halfL : halfS;
-          const halfH = isHoriz ? halfS : halfL;
-          if (lUpSteps === 0) {
-            lx -= lPrevHalfW - halfW;
+          isHoriz = isDbl;
+          hw = isHoriz ? halfL : halfS;
+          hh = isHoriz ? halfS : halfL;
+          if (lPrevDir === "W") {
+            // Sejajar sisi kiri kartu sudut
+            lx = lx - lPrevHW + hw;
           }
-          ly -= lPrevHalfH + halfH + gap;
-          placed.push({ first: t.left, second: t.right, skin: t.skin, isHorizontal: isHoriz, x: lx, y: ly });
-          lPrevHalfW = halfW;
-          lPrevHalfH = halfH;
+          ly -= lPrevHH + gap + hh;
+          first = t.left;
+          second = t.right;
           lUpSteps++;
-        } else if (lDir === "E") {
-          const isHoriz = !isDbl;
-          const halfW = isHoriz ? halfL : halfS;
-          const halfH = isHoriz ? halfS : halfL;
-          if (lUpSteps > 0) {
-            ly -= lPrevHalfH - halfH;
-            lUpSteps = 0;
+        } else {
+          // lDir === "E" (berbelok ke kanan di baris atas)
+          isHoriz = !isDbl;
+          hw = isHoriz ? halfL : halfS;
+          hh = isHoriz ? halfS : halfL;
+          if (lPrevDir === "N") {
+            // Sejajar sisi atas kartu sudut
+            ly = ly - lPrevHH + hh;
           }
-          lx += lPrevHalfW + halfW + gap;
-          placed.push({ first: t.right, second: t.left, skin: t.skin, isHorizontal: isHoriz, x: lx, y: ly });
-          lPrevHalfW = halfW;
-          lPrevHalfH = halfH;
-        } else if (lDir === "S") {
-          const isHoriz = isDbl;
-          const halfW = isHoriz ? halfL : halfS;
-          const halfH = isHoriz ? halfS : halfL;
-          ly += lPrevHalfH + halfH + gap;
-          placed.push({ first: t.right, second: t.left, skin: t.skin, isHorizontal: isHoriz, x: lx, y: ly });
-          lPrevHalfW = halfW;
-          lPrevHalfH = halfH;
+          lx += lPrevHW + gap + hw;
+          first = t.right;
+          second = t.left;
         }
+
+        placed.push({ first, second, skin: t.skin, isHorizontal: isHoriz, x: lx, y: ly, hw, hh });
+        lPrevHW = hw;
+        lPrevHH = hh;
+        lPrevDir = lDir;
       }
 
+      // 4. Auto-fit Bounding Box agar tidak pernah keluar meja atau menyentuh avatar
+      let bMinX = Infinity, bMaxX = -Infinity, bMinY = Infinity, bMaxY = -Infinity;
+      placed.forEach(p => {
+        bMinX = Math.min(bMinX, p.x - p.hw);
+        bMaxX = Math.max(bMaxX, p.x + p.hw);
+        bMinY = Math.min(bMinY, p.y - p.hh);
+        bMaxY = Math.max(bMaxY, p.y + p.hh);
+      });
+
+      const contentW = Math.max(1, bMaxX - bMinX);
+      const contentH = Math.max(1, bMaxY - bMinY);
+      const safeW = Math.max(120, W - (isDesktop ? 210 : 138));
+      const safeH = Math.max(140, H - 18);
+
+      const scale = Math.min(1, safeW / contentW, safeH / contentH);
+      const midX = (bMinX + bMaxX) / 2;
+      const midY = (bMinY + bMaxY) / 2;
+      const shiftX = cx - midX;
+      const shiftY = cy - midY;
+
+      canvas.style.transform = `scale(${scale.toFixed(3)})`;
       canvas.innerHTML = placed.map(item =>
         renderDominoTileHTML(
           item.first,
@@ -2062,7 +2265,7 @@
           item.skin,
           item.isHorizontal,
           "board-tile",
-          `left:${item.x}px; top:${item.y}px;`
+          `left:${(item.x + shiftX).toFixed(1)}px; top:${(item.y + shiftY).toFixed(1)}px;`
         )
       ).join("");
     }
@@ -2103,7 +2306,7 @@
       const rank = getRankByRP(player.rp);
       const isTurn = !gameState.roundOver && gameState.turnIndex === player.id;
       const roleTag = gameState.mode === "mandan"
-        ? (player.team === 1 ? `<span style="color:#64d2ff; font-size:0.65rem;">(Partner)</span>` : `<span style="color:#ff9f0a; font-size:0.65rem;">(Lawan)</span>`)
+        ? (player.team === 1 ? `<span style="color:#64d2ff; font-size:0.62rem;">(Partner)</span>` : `<span style="color:#ff9f0a; font-size:0.62rem;">(Lawan)</span>`)
         : "";
 
       return `
@@ -2113,8 +2316,8 @@
             ${player.passedLast ? `<span class="pass-pill">PASS</span>` : ""}
           </div>
           <div>
-            <div style="font-weight:700; font-size:0.78rem;">${player.name} ${roleTag}</div>
-            <div style="font-size:0.68rem; color:#ffd60a; font-weight:700;">🪙 ${player.koin || 80}K</div>
+            <div style="font-weight:700; font-size:0.75rem;">${player.name} ${roleTag}</div>
+            <div style="font-size:0.66rem; color:#ffd60a; font-weight:700;">🪙 ${player.koin || 80}K</div>
           </div>
           <div class="card-count-badge" title="Sisa kartu">${player.hand.length}</div>
         </div>
@@ -2233,6 +2436,7 @@
     }
 
     function executePlayTile(playerIdx, tileIndex, side) {
+      SoundEngine.playTileClack();
       const player = gameState.players[playerIdx];
       const [a, b] = player.hand.splice(tileIndex, 1)[0];
       const skin = playerIdx === 0 ? currentUser.activeSkin : "classic";
@@ -2278,6 +2482,7 @@
     }
 
     function executePass(playerIdx) {
+      SoundEngine.playPassTap();
       const player = gameState.players[playerIdx];
       player.passedLast = true;
       gameState.consecutivePasses++;
@@ -2294,6 +2499,9 @@
     function advanceTurn() {
       gameState.turnIndex = (gameState.turnIndex + 1) % gameState.players.length;
       renderGameArena();
+      if (!gameState.roundOver && gameState.turnIndex === 0) {
+        SoundEngine.playTurnChime();
+      }
       checkNextTurn();
     }
 
@@ -2329,6 +2537,7 @@
       gameState.roundOver = true;
       clearTimeout(botTimer);
       renderGameArena();
+      SoundEngine.playWinFanfare();
 
       const results = gameState.players.map(p => ({
         player: p,
