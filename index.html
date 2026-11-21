@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>DominoX</title>
+  <title>DominoX — iOS Liquid Glass Edition</title>
+  <link rel="icon" type="image/png" href="logo.png" />
   <style>
     :root {
       --bg-base: #070b14;
@@ -121,25 +122,64 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 960px;
+      max-width: 1040px;
       min-height: 100vh;
-      padding: 16px;
+      padding: 12px;
       display: flex;
       flex-direction: column;
     }
 
     .hidden { display: none !important; }
 
-    /* Typography & Buttons */
+    /* Brand Logo Containers */
+    .auth-logo-frame {
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 18px rgba(255, 215, 0, 0.15);
+      background: #0d0f12;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .auth-logo-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .header-logo-frame {
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      background: #0d0f12;
+      flex-shrink: 0;
+    }
+
+    .header-logo-img {
+      height: 100%;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
     .brand-title {
       font-size: 2rem;
       font-weight: 800;
       letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #ffffff 0%, #a5c9ff 100%);
+      padding: 14px;
+      background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
+    /* Buttons */
     .btn-ios {
       border: none;
       border-radius: var(--radius-md);
@@ -249,6 +289,7 @@
       color: #f3d5b5;
       border: 1px solid #9c6b43;
     }
+    .border-rank-warrior { border: 2.5px solid #9c6b43 !important; }
 
     /* 2. Member Elite - Silver */
     .rank-elite {
@@ -256,6 +297,7 @@
       color: #1c222b;
       border: 1px solid #ffffff;
     }
+    .border-rank-elite { border: 2.5px solid #dce3e8 !important; box-shadow: 0 0 10px rgba(255,255,255,0.4); }
 
     /* 3. Member Master - Emas Kuning */
     .rank-master {
@@ -264,6 +306,7 @@
       border: 1px solid #ffe57f;
       box-shadow: 0 0 12px rgba(246, 211, 101, 0.35);
     }
+    .border-rank-master { border: 2.5px solid #ffd54f !important; box-shadow: 0 0 12px rgba(255, 213, 79, 0.55); }
 
     /* 4. Member Legend - Emas Putih */
     .rank-legend {
@@ -272,6 +315,7 @@
       border: 1px solid #fff8e7;
       box-shadow: 0 0 14px rgba(243, 231, 201, 0.45);
     }
+    .border-rank-legend { border: 2.5px solid #fff5d6 !important; box-shadow: 0 0 14px rgba(255, 245, 214, 0.65); }
 
     /* 5. Member Mythic - Burgundy */
     .rank-mythic {
@@ -280,6 +324,7 @@
       border: 1px solid #b51736;
       box-shadow: 0 0 14px rgba(181, 23, 54, 0.45);
     }
+    .border-rank-mythic { border: 2.5px solid #c9184a !important; box-shadow: 0 0 14px rgba(201, 24, 74, 0.65); }
 
     /* 6. Member Glory - Putih + Efek Emas */
     .rank-glory {
@@ -288,6 +333,7 @@
       border: 1.5px solid #ffd700;
       box-shadow: 0 0 16px rgba(255, 215, 0, 0.65);
     }
+    .border-rank-glory { border: 2.5px solid #ffd700 !important; box-shadow: 0 0 16px rgba(255, 255, 255, 0.75), 0 0 22px rgba(255, 215, 0, 0.7); }
 
     /* 7. Member Prioritas - Biru Tua + Efek Emas */
     .rank-prioritas {
@@ -296,6 +342,7 @@
       border: 1.5px solid #ffd700;
       box-shadow: 0 0 18px rgba(255, 215, 0, 0.75), inset 0 0 8px rgba(255, 215, 0, 0.35);
     }
+    .border-rank-prioritas { border: 2.5px solid #ffd700 !important; box-shadow: 0 0 18px rgba(13, 43, 107, 0.9), 0 0 24px rgba(255, 215, 0, 0.85); }
 
     .rank-glory::after,
     .rank-prioritas::after {
@@ -322,7 +369,7 @@
       margin: auto;
       width: 100%;
       max-width: 420px;
-      padding: 28px 24px;
+      padding: 24px;
     }
 
     .form-group {
@@ -344,7 +391,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 18px;
+      padding: 12px 16px;
       margin-bottom: 16px;
       gap: 12px;
       flex-wrap: wrap;
@@ -353,20 +400,21 @@
     .user-pill {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .avatar-circle {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: linear-gradient(135deg, #0a84ff, #5e5ce6);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1rem;
       border: 2px solid rgba(255, 255, 255, 0.35);
+      flex-shrink: 0;
     }
 
     .koin-pill {
@@ -451,11 +499,11 @@
     .domino-tile {
       width: 44px;
       height: 84px;
-      border-radius: 9px;
+      border-radius: 8px;
       display: inline-flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 5px;
+      padding: 4px;
       position: relative;
       user-select: none;
       transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
@@ -466,6 +514,27 @@
       width: 84px;
       height: 44px;
       flex-direction: row;
+    }
+
+    /* Compact Board Tile Size (Agar muat 28 batu berbelok di meja) */
+    .domino-tile.board-tile {
+      width: 28px;
+      height: 54px;
+      border-radius: 5px;
+      padding: 3px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.45);
+    }
+
+    .domino-tile.board-tile.horizontal {
+      width: 54px;
+      height: 28px;
+    }
+
+    .domino-tile.board-tile .pip {
+      width: 4px;
+      height: 4px;
     }
 
     .domino-divider {
@@ -485,7 +554,7 @@
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(3, 1fr);
       place-items: center;
-      padding: 2px;
+      padding: 1px;
     }
 
     .pip {
@@ -496,8 +565,8 @@
 
     /* Skin 1: Classic Ivory */
     .skin-classic {
-      background: linear-gradient(145deg, #ffffff 0%, #e9e4d8 100%);
-      border: 1.5px solid #c9c2b2;
+      background: linear-gradient(145deg, #ffffff 0%, #e5e0d5 100%);
+      border: 1.2px solid #bdb5a4;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35), inset 0 1px 0 #fff;
     }
     .skin-classic .domino-divider { background: #444; }
@@ -507,7 +576,7 @@
     /* Skin 2: Dark Carbon */
     .skin-carbon {
       background: linear-gradient(145deg, #2c2c2e 0%, #141416 100%);
-      border: 1.5px solid #48484a;
+      border: 1.2px solid #48484a;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
     .skin-carbon .domino-divider { background: #8e8e93; }
@@ -517,7 +586,7 @@
     /* Skin 3: Neon Cyber */
     .skin-neon {
       background: linear-gradient(145deg, #09152b 0%, #050a17 100%);
-      border: 1.5px solid #00f0ff;
+      border: 1.2px solid #00f0ff;
       box-shadow: 0 0 12px rgba(0, 240, 255, 0.4), inset 0 0 6px rgba(0, 240, 255, 0.25);
     }
     .skin-neon .domino-divider { background: #00f0ff; }
@@ -527,22 +596,12 @@
     /* Skin 4: Royal Gold */
     .skin-gold {
       background: linear-gradient(145deg, #ffe28a 0%, #d49b27 100%);
-      border: 1.5px solid #fff0b3;
+      border: 1.2px solid #fff0b3;
       box-shadow: 0 4px 14px rgba(212, 155, 39, 0.45), inset 0 1px 0 #fff;
     }
     .skin-gold .domino-divider { background: #4a3200; }
     .skin-gold .pip { background: #2b1c00; }
     .skin-gold .pip.pip-red { background: #9e001c; }
-
-    /* Face-down card */
-    .domino-back {
-      width: 24px;
-      height: 44px;
-      border-radius: 6px;
-      background: linear-gradient(135deg, #1d3557, #0b192c);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
-    }
 
     /* =========================================================
        WAITING ROOM
@@ -589,134 +648,259 @@
     }
 
     /* =========================================================
-       GAME ARENA
+       GAME ARENA (CLASSIC GREEN FELT + 4-SEAT REFERENCE LAYOUT)
     ========================================================= */
     #view-game {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      min-height: calc(100vh - 32px);
+      gap: 8px;
+      min-height: calc(100vh - 24px);
     }
 
     .game-hud {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 16px;
+      padding: 8px 14px;
       flex-wrap: wrap;
       gap: 8px;
+      border-radius: 18px;
     }
 
     .score-pill {
-      background: rgba(0, 0, 0, 0.35);
-      padding: 6px 12px;
+      background: rgba(0, 0, 0, 0.42);
+      padding: 5px 11px;
       border-radius: 10px;
-      font-size: 0.84rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.14);
     }
 
-    .arena-middle {
+    /* Green Felt Table Container (Inspired by Reference) */
+    .classic-felt-table {
       flex: 1;
-      display: grid;
-      grid-template-rows: auto 1fr;
+      position: relative;
+      border-radius: 28px;
+      background:
+        radial-gradient(ellipse at 50% 45%, #23876e 0%, #125c4a 52%, #09352b 100%);
+      border: 3px solid rgba(255, 215, 0, 0.28);
+      box-shadow:
+        inset 0 0 60px rgba(0, 0, 0, 0.55),
+        0 20px 45px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      min-height: 520px;
+      padding: 12px;
+    }
+
+    /* Subtle Geometric Table Inner Frame */
+    .classic-felt-table::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1.5px solid rgba(255, 230, 150, 0.14);
+      border-radius: 22px;
+      pointer-events: none;
+    }
+
+    /* Center Table Watermark */
+    .table-watermark {
+      position: absolute;
+      top: 46%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+    }
+
+    .table-watermark-title {
+      font-size: 2.3rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: rgba(0, 0, 0, 0.22);
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .table-watermark-sub {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 3px 14px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.18);
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.74rem;
+      font-weight: 600;
+    }
+
+    /* Opponent Seat Widgets (Top, Left, Right) */
+    .seat-widget {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 16px;
+      background: rgba(8, 22, 20, 0.55);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.25s ease;
+    }
+
+    .seat-widget.active-turn {
+      border-color: #ffd60a;
+      box-shadow: 0 0 18px rgba(255, 214, 10, 0.55);
+      background: rgba(20, 48, 40, 0.85);
+    }
+
+    .seat-top-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 58px;
+    }
+
+    .seat-middle-row {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      min-height: 250px;
+    }
+
+    .seat-side {
+      flex-direction: column;
+      text-align: center;
+      min-width: 96px;
+    }
+
+    .seat-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1c3d5a, #0f2027);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    .card-count-badge {
+      background: linear-gradient(180deg, #ff453a 0%, #b81d13 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.82rem;
+      min-width: 24px;
+      height: 26px;
+      padding: 0 6px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.45);
+    }
+
+    .pass-pill {
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff9f0a;
+      color: #1c1c1e;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* Snake Board Stage */
+    .snake-board-wrapper {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .snake-board-canvas {
+      position: relative;
+      width: 520px;
+      height: 230px;
+    }
+
+    @media (max-width: 680px) {
+      .snake-board-canvas {
+        transform: scale(0.68);
+      }
+      .seat-side {
+        min-width: 76px;
+        padding: 5px 6px;
+      }
+    }
+
+    /* Bottom Player Dock Inside Table */
+    .table-bottom-dock {
+      position: relative;
+      z-index: 6;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .auto-notice-bar {
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #a8f0c6;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       gap: 10px;
     }
 
-    .opponents-row {
+    .bottom-player-row {
       display: flex;
-      justify-content: space-around;
+      align-items: flex-end;
+      justify-content: space-between;
       gap: 10px;
       flex-wrap: wrap;
     }
 
-    .opponent-box {
-      padding: 10px 14px;
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      min-width: 145px;
-      text-align: center;
-      transition: all 0.25s;
-    }
-
-    .opponent-box.active-turn {
-      border-color: var(--ios-green);
-      box-shadow: 0 0 18px rgba(48, 209, 88, 0.35);
-      background: rgba(48, 209, 88, 0.12);
-    }
-
-    .mini-cards {
-      display: flex;
-      justify-content: center;
-      gap: 3px;
-      margin-top: 6px;
-    }
-
-    .mini-card-dot {
-      width: 10px;
-      height: 18px;
-      border-radius: 3px;
-      background: #4ea8de;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-    }
-
-    /* Domino Board Table */
-    .board-table {
-      background: rgba(8, 28, 24, 0.55);
-      backdrop-filter: var(--blur-md);
-      -webkit-backdrop-filter: var(--blur-md);
-      border: 1px solid rgba(48, 209, 88, 0.25);
-      border-radius: var(--radius-xl);
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 220px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .board-ends-info {
-      position: absolute;
-      top: 10px;
-      left: 16px;
-      right: 16px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-    }
-
-    .board-chain {
+    .self-profile-box {
       display: flex;
       align-items: center;
-      gap: 6px;
-      overflow-x: auto;
-      max-width: 100%;
-      padding: 22px 12px;
-      scrollbar-width: thin;
+      gap: 9px;
+      padding: 7px 12px;
+      border-radius: 16px;
+      background: rgba(8, 20, 18, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
 
-    /* Player Hand Zone */
-    .player-hand-zone {
-      padding: 14px 16px;
-      border-radius: var(--radius-xl);
-      transition: border-color 0.25s;
-    }
-
-    .player-hand-zone.active-turn {
-      border-color: var(--ios-blue);
-      box-shadow: 0 0 24px rgba(10, 132, 255, 0.28);
+    .self-profile-box.active-turn {
+      border-color: #30d158;
+      box-shadow: 0 0 18px rgba(48, 209, 88, 0.5);
     }
 
     .hand-tiles {
+      flex: 1;
       display: flex;
       justify-content: center;
+      align-items: flex-end;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
+      gap: 6px;
+      min-height: 92px;
     }
 
     .hand-tiles .domino-tile {
@@ -724,17 +908,62 @@
     }
 
     .hand-tiles .domino-tile.playable {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(10, 132, 255, 0.55), 0 0 0 2px var(--ios-blue);
+      transform: translateY(-7px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.55), 0 0 0 2px #ffd60a;
     }
 
     .hand-tiles .domino-tile.playable:hover {
-      transform: translateY(-11px) scale(1.04);
+      transform: translateY(-13px) scale(1.05);
     }
 
     .hand-tiles .domino-tile.unplayable {
-      opacity: 0.45;
+      opacity: 0.52;
       cursor: not-allowed;
+    }
+
+    /* Bottom Pip Counter Strip (0 to 6 like Reference) */
+    .pip-counter-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 12px;
+      border-radius: 12px;
+      background: rgba(5, 16, 14, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex-wrap: wrap;
+    }
+
+    .pip-stat-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #e5e5ea;
+    }
+
+    .mini-pip-die {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      background: #d8d4c8;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      place-items: center;
+      padding: 2px;
+    }
+
+    .mini-pip-die span {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #1c1c1e;
+    }
+
+    .mini-pip-die span.red {
+      background: #d70015;
     }
 
     /* =========================================================
@@ -777,6 +1006,7 @@
       font-size: 0.88rem;
       font-weight: 600;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+      text-align: center;
     }
   </style>
 </head>
@@ -797,9 +1027,17 @@
          1. VIEW: AUTH (LOGIN & REGISTER)
     ========================================================= -->
     <div id="view-auth" class="liquid-glass">
-      <div style="text-align: center; margin-bottom: 20px;">
-        <div class="brand-title">DominoX</div>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+      <div style="text-align: center; margin-bottom: 18px;">
+        <div class="auth-logo-frame">
+          <img
+            src="logo.png"
+            alt="DominoX Logo"
+            class="auth-logo-img"
+            onerror="this.style.display='none'; document.getElementById('fallback-brand-title').classList.remove('hidden');"
+          />
+          <div id="fallback-brand-title" class="brand-title hidden">DominoX</div>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--text-secondary);">
           Casual Domino Arena • Liquid Glass UI
         </p>
       </div>
@@ -854,11 +1092,16 @@
     <div id="view-main" class="hidden">
       <!-- Top Bar -->
       <div class="top-bar liquid-glass">
-        <div class="user-pill">
-          <div class="avatar-circle" id="hdr-avatar">D</div>
-          <div>
-            <div style="font-weight: 700; font-size: 1rem;" id="hdr-username">Player</div>
-            <div id="hdr-rank-badge" class="rank-badge rank-warrior">Member Warrior</div>
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <div class="header-logo-frame">
+            <img src="logo.png" alt="DominoX" class="header-logo-img" onerror="this.parentElement.style.display='none';" />
+          </div>
+          <div class="user-pill">
+            <div class="avatar-circle" id="hdr-avatar">D</div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.96rem;" id="hdr-username">Player</div>
+              <div id="hdr-rank-badge" class="rank-badge rank-warrior">Member Warrior</div>
+            </div>
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 10px;">
@@ -912,10 +1155,11 @@
               Masuk ke Room
             </button>
 
-            <div class="liquid-card" style="padding: 12px; font-size: 0.8rem; color: var(--text-secondary);">
-              <strong>Aturan Khusus DominoX:</strong><br/>
+            <div class="liquid-card" style="padding: 12px; font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5;">
+              <strong>Aturan Main DominoX:</strong><br/>
+              • <strong>Pembuka Jalan:</strong> Pemegang balak tertinggi (umumnya <strong>6–6</strong>) mulai lebih dulu dan di giliran pertama <strong>hanya boleh mengeluarkan kartu balak</strong> (<code>0–0</code> s/d <code>6–6</code>).<br/>
               • Jika semua pemain <em>Pass</em>, otomatis <strong>Adu Kartu</strong> (titik terkecil menang).<br/>
-              • Mode <strong>Mandan (2v2)</strong>: Tim tidak boleh melihat/tukar kartu. Sisa titik tim &le; 9 dihitung <strong>0 poin</strong>; &gt; 9 ditambahkan ke skor eliminasi (batas kalah <strong>101 poin</strong>).
+              • Mode <strong>Mandan (2v2)</strong>: Sisa titik tim &le; 9 dihitung <strong>0 poin</strong>; &gt; 9 ditambahkan ke skor eliminasi (batas kalah <strong>101 poin</strong>).
             </div>
           </div>
         </div>
@@ -1005,14 +1249,14 @@
     </div>
 
     <!-- =========================================================
-         4. VIEW: GAME ARENA
+         4. VIEW: GAME ARENA (CLASSIC GREEN TABLE)
     ========================================================= -->
     <div id="view-game" class="hidden">
       <!-- Top HUD -->
       <div class="game-hud liquid-glass">
         <div style="display: flex; align-items: center; gap: 10px;">
           <span style="font-weight: 800; color: #64d2ff;" id="game-room-badge">DMX-0000</span>
-          <span style="font-size: 0.82rem; color: var(--text-secondary);" id="game-mode-badge">Solo 4 Pemain</span>
+          <span style="font-size: 0.8rem; color: var(--text-secondary);" id="game-mode-badge">Solo 4 Pemain</span>
         </div>
         <div id="game-scoreboard" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
         <button class="btn-ios btn-danger" style="padding: 6px 12px; font-size: 0.78rem;" onclick="quitGame()">
@@ -1020,32 +1264,57 @@
         </button>
       </div>
 
-      <!-- Opponents & Board -->
-      <div class="arena-middle">
-        <div class="opponents-row" id="opponents-container"></div>
-
-        <div class="board-table">
-          <div class="board-ends-info">
-            <span>Ujung Kiri: <strong id="board-left-val" style="color:#fff;">-</strong></span>
-            <span id="turn-indicator" style="color: #30d158; font-weight: 700;">Giliran Anda</span>
-            <span>Ujung Kanan: <strong id="board-right-val" style="color:#fff;">-</strong></span>
-          </div>
-          <div class="board-chain" id="board-chain"></div>
+      <!-- Classic Green Domino Table -->
+      <div class="classic-felt-table">
+        <!-- Center Watermark -->
+        <div class="table-watermark">
+          <div class="table-watermark-title">DominoX</div>
+          <div class="table-watermark-sub" id="table-center-status">Giliran Anda</div>
         </div>
-      </div>
 
-      <!-- Bottom Player Hand -->
-      <div class="player-hand-zone liquid-glass" id="player-zone">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <strong id="player-game-name">Anda</strong>
-            <span id="player-game-rank" class="rank-badge rank-warrior">Member Warrior</span>
+        <!-- Top Seat (Opponent 2 / Partner) -->
+        <div class="seat-top-row" id="seat-top-container"></div>
+
+        <!-- Middle Row: Left Seat + Snake Domino Board + Right Seat -->
+        <div class="seat-middle-row">
+          <div id="seat-left-container"></div>
+
+          <div class="snake-board-wrapper">
+            <div class="snake-board-canvas" id="snake-board-canvas"></div>
           </div>
-          <button class="btn-ios btn-glass" id="btn-pass" style="padding: 7px 14px; font-size: 0.82rem;" onclick="playerPass()">
-            Lewat (Pass)
-          </button>
+
+          <div id="seat-right-container"></div>
         </div>
-        <div class="hand-tiles" id="player-hand"></div>
+
+        <!-- Bottom Player Dock -->
+        <div class="table-bottom-dock">
+          <div class="auto-notice-bar">
+            <span id="turn-banner-text">✓ Kartu terakhir akan dikeluarkan otomatis!</span>
+            <button class="btn-ios btn-glass" id="btn-pass" style="padding: 5px 14px; font-size: 0.78rem; border-radius: 999px;" onclick="playerPass()">
+              Lewat (Pass)
+            </button>
+          </div>
+
+          <div class="bottom-player-row">
+            <!-- Bottom-Left Self Profile (Like Reference) -->
+            <div class="self-profile-box" id="self-profile-box">
+              <div class="avatar-circle" id="self-table-avatar">D</div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.88rem;" id="self-table-name">Anda</div>
+                <div style="margin: 2px 0;">
+                  <span id="self-table-rank" class="rank-badge rank-warrior" style="font-size:0.62rem; padding:2px 7px;">Member Warrior</span>
+                </div>
+                <div style="font-size: 0.76rem; color: #ffd60a; font-weight: 700;" id="self-table-koin">🪙 50K</div>
+              </div>
+            </div>
+
+            <!-- Player Hand -->
+            <div class="hand-tiles" id="player-hand"></div>
+          </div>
+
+          <!-- Bottom Pip Counter Bar (0 to 6) -->
+          <div class="pip-counter-bar" id="pip-counter-bar"></div>
+        </div>
       </div>
     </div>
 
@@ -1063,13 +1332,13 @@
        DATA & KONFIGURASI RANK MEMBER (7 TINGKATAN)
     ========================================================= */
     const RANKS = [
-      { name: "Member Warrior", minRP: 0, className: "rank-warrior", desc: "Coklat Klasik (0 – 99 RP)" },
-      { name: "Member Elite", minRP: 100, className: "rank-elite", desc: "Silver Metalik (100 – 299 RP)" },
-      { name: "Member Master", minRP: 300, className: "rank-master", desc: "Emas Kuning (300 – 599 RP)" },
-      { name: "Member Legend", minRP: 600, className: "rank-legend", desc: "Emas Putih (600 – 999 RP)" },
-      { name: "Member Mythic", minRP: 1000, className: "rank-mythic", desc: "Burgundy (1.000 – 1.499 RP)" },
-      { name: "Member Glory", minRP: 1500, className: "rank-glory", desc: "Putih Berefek Emas (1.500 – 2.499 RP)" },
-      { name: "Member Prioritas", minRP: 2500, className: "rank-prioritas", desc: "Biru Tua Efek Emas (2.500+ RP)" }
+      { name: "Member Warrior", minRP: 0, className: "rank-warrior", borderClass: "border-rank-warrior", desc: "Coklat Klasik (0 – 99 RP)" },
+      { name: "Member Elite", minRP: 100, className: "rank-elite", borderClass: "border-rank-elite", desc: "Silver Metalik (100 – 299 RP)" },
+      { name: "Member Master", minRP: 300, className: "rank-master", borderClass: "border-rank-master", desc: "Emas Kuning (300 – 599 RP)" },
+      { name: "Member Legend", minRP: 600, className: "rank-legend", borderClass: "border-rank-legend", desc: "Emas Putih (600 – 999 RP)" },
+      { name: "Member Mythic", minRP: 1000, className: "rank-mythic", borderClass: "border-rank-mythic", desc: "Burgundy (1.000 – 1.499 RP)" },
+      { name: "Member Glory", minRP: 1500, className: "rank-glory", borderClass: "border-rank-glory", desc: "Putih Berefek Emas (1.500 – 2.499 RP)" },
+      { name: "Member Prioritas", minRP: 2500, className: "rank-prioritas", borderClass: "border-rank-prioritas", desc: "Biru Tua Efek Emas (2.500+ RP)" }
     ];
 
     const SKINS = [
@@ -1080,12 +1349,22 @@
     ];
 
     const BOT_PROFILES = [
-      { name: "Raka_Pro", rp: 1650 },
-      { name: "SintaDomino", rp: 680 },
-      { name: "BosKecil99", rp: 2600 },
-      { name: "Aldi_King", rp: 350 },
-      { name: "Nadia_VIP", rp: 1120 }
+      { name: "Mawardi", rp: 1650, koin: 120 },
+      { name: "itel_A667", rp: 680, koin: 85 },
+      { name: "Marlan", rp: 2600, koin: 340 },
+      { name: "Rangga_R", rp: 350, koin: 60 },
+      { name: "Nadia_VIP", rp: 1120, koin: 210 }
     ];
+
+    const PIP_MAP = {
+      0: [],
+      1: [4],
+      2: [0, 8],
+      3: [0, 4, 8],
+      4: [0, 2, 6, 8],
+      5: [0, 2, 4, 6, 8],
+      6: [0, 2, 3, 5, 6, 8]
+    };
 
     let currentUser = null;
     let selectedMode = "solo2";
@@ -1157,7 +1436,7 @@
         fullName,
         phone,
         password,
-        koin: 50, // 50K Koin awal
+        koin: 50,
         rp: 0,
         wins: 0,
         matches: 0,
@@ -1205,7 +1484,9 @@
     function updateHeaderUI() {
       if (!currentUser) return;
       const rank = getRankByRP(currentUser.rp);
-      document.getElementById("hdr-avatar").textContent = currentUser.username[0].toUpperCase();
+      const av = document.getElementById("hdr-avatar");
+      av.textContent = currentUser.username[0].toUpperCase();
+      av.className = "avatar-circle " + rank.borderClass;
       document.getElementById("hdr-username").textContent = currentUser.username;
       document.getElementById("hdr-koin").textContent = currentUser.koin + "K";
 
@@ -1349,6 +1630,7 @@
           {
             name: currentUser.username,
             rp: currentUser.rp,
+            koin: currentUser.koin,
             isBot: false,
             team: 1
           }
@@ -1364,7 +1646,6 @@
         showToast("Masukkan ID Room yang valid (contoh: DMX-4821).");
         return;
       }
-      // Simulasi bergabung ke room aktif berdasarkan ID yang dimasukkan
       createRoom(code);
       fillRoomWithBots();
       showToast(`Berhasil bergabung ke Room ${code}`);
@@ -1435,6 +1716,7 @@
         roomState.players.push({
           name: bot.name,
           rp: bot.rp,
+          koin: bot.koin,
           isBot: true,
           team: roomState.players.length % 2 === 0 ? 1 : 2
         });
@@ -1449,7 +1731,7 @@
     }
 
     /* =========================================================
-       DOMINO ENGINE & GAMEPLAY
+       DOMINO ENGINE & SNAKE BOARD LAYOUT (REFERENCE STYLE)
     ========================================================= */
     function createDeck() {
       const deck = [];
@@ -1461,19 +1743,9 @@
       return deck.sort(() => Math.random() - 0.5);
     }
 
-    function renderDominoTileHTML(topVal, bottomVal, skinId, isHorizontal = false, extraClass = "", onClickAttr = "") {
-      const pipMap = {
-        0: [],
-        1: [4],
-        2: [0, 8],
-        3: [0, 4, 8],
-        4: [0, 2, 6, 8],
-        5: [0, 2, 4, 6, 8],
-        6: [0, 2, 3, 5, 6, 8]
-      };
-
+    function renderDominoTileHTML(firstVal, secondVal, skinId, isHorizontal = false, extraClass = "", inlineStyle = "", onClickAttr = "") {
       const buildHalf = (val) => {
-        const active = pipMap[val] || [];
+        const active = PIP_MAP[val] || [];
         const isRed = val === 1 || val === 4;
         let cells = "";
         for (let i = 0; i < 9; i++) {
@@ -1487,10 +1759,10 @@
       };
 
       return `
-        <div class="domino-tile skin-${skinId} ${isHorizontal ? "horizontal" : ""} ${extraClass}" ${onClickAttr}>
-          ${buildHalf(topVal)}
+        <div class="domino-tile skin-${skinId} ${isHorizontal ? "horizontal" : ""} ${extraClass}" style="${inlineStyle}" ${onClickAttr}>
+          ${buildHalf(firstVal)}
           <div class="domino-divider"></div>
-          ${buildHalf(bottomVal)}
+          ${buildHalf(secondVal)}
         </div>
       `;
     }
@@ -1500,16 +1772,20 @@
       document.getElementById("view-game").classList.remove("hidden");
 
       const modeLabels = {
-        solo2: "Solo 2 Pemain (Target 2 Poin)",
-        solo4: "Solo 4 Pemain (Target 2 Poin)",
+        solo2: "Solo 2P (Target 2 Poin)",
+        solo4: "Solo 4P (Target 2 Poin)",
         mandan: "Mandan 2v2 (Eliminasi 101)"
       };
       document.getElementById("game-room-badge").textContent = roomState.id;
       document.getElementById("game-mode-badge").textContent = modeLabels[roomState.mode];
 
       const userRank = getRankByRP(currentUser.rp);
-      document.getElementById("player-game-name").textContent = currentUser.username;
-      const pBadge = document.getElementById("player-game-rank");
+      const selfAv = document.getElementById("self-table-avatar");
+      selfAv.textContent = currentUser.username[0].toUpperCase();
+      selfAv.className = "avatar-circle " + userRank.borderClass;
+      document.getElementById("self-table-name").textContent = currentUser.username;
+      document.getElementById("self-table-koin").textContent = "🪙 " + currentUser.koin + "K";
+      const pBadge = document.getElementById("self-table-rank");
       pBadge.className = "rank-badge " + userRank.className;
       pBadge.textContent = userRank.name;
 
@@ -1522,8 +1798,9 @@
           soloPoints: 0,
           passedLast: false
         })),
-        teamScores: { 1: 0, 2: 0 }, // Untuk mode Mandan
+        teamScores: { 1: 0, 2: 0 },
         board: [],
+        rootIndex: 0,
         leftEnd: null,
         rightEnd: null,
         turnIndex: 0,
@@ -1539,6 +1816,7 @@
       clearTimeout(botTimer);
       const deck = createDeck();
       gameState.board = [];
+      gameState.rootIndex = 0;
       gameState.leftEnd = null;
       gameState.rightEnd = null;
       gameState.consecutivePasses = 0;
@@ -1549,7 +1827,7 @@
         p.passedLast = false;
       });
 
-      // Tentukan pemain pertama berdasarkan balak tertinggi ([6,6] -> [0,0])
+      // Pembuka jalan: Pemegang balak tertinggi (6-6 turun ke 0-0) memulai giliran pertama
       let starter = 0;
       let highestDouble = -1;
       gameState.players.forEach((p, idx) => {
@@ -1567,7 +1845,15 @@
     }
 
     function isTilePlayable(tile) {
-      if (gameState.board.length === 0) return true;
+      // Pada giliran pertama (meja kosong), pembuka jalan HANYA boleh mengeluarkan kartu balak (0-0 s/d 6-6)
+      if (gameState.board.length === 0) {
+        const starterHand = gameState.players[gameState.turnIndex].hand;
+        const hasDouble = starterHand.some(([x, y]) => x === y);
+        if (hasDouble) {
+          return tile[0] === tile[1];
+        }
+        return true;
+      }
       const [a, b] = tile;
       return a === gameState.leftEnd || b === gameState.leftEnd ||
              a === gameState.rightEnd || b === gameState.rightEnd;
@@ -1579,8 +1865,195 @@
         .filter(({ tile }) => isTilePlayable(tile));
     }
 
+    /* Snake / S-Curve Board Renderer (Turns Up on Left & Down on Right like Reference) */
+    function renderSnakeBoard() {
+      const canvas = document.getElementById("snake-board-canvas");
+      if (gameState.board.length === 0) {
+        canvas.innerHTML = "";
+        return;
+      }
+
+      const cx = 260;
+      const cy = 115;
+      const placed = [];
+
+      // 1. Root tile at center
+      const root = gameState.board[gameState.rootIndex];
+      const rootIsDouble = root.left === root.right;
+      placed.push({
+        first: root.left,
+        second: root.right,
+        skin: root.skin,
+        isHorizontal: !rootIsDouble,
+        x: cx,
+        y: cy
+      });
+
+      // 2. Right branch (East -> South -> West)
+      let rx = cx;
+      let ry = cy;
+      let rPrevHalfW = rootIsDouble ? 14 : 27;
+      let rPrevHalfH = rootIsDouble ? 27 : 14;
+      let rDir = "E";
+      let rDownSteps = 0;
+
+      for (let i = gameState.rootIndex + 1; i < gameState.board.length; i++) {
+        const t = gameState.board[i];
+        const isDbl = t.left === t.right;
+
+        if (rDir === "E" && rx > cx + 165) {
+          rDir = "S";
+          rDownSteps = 0;
+        } else if (rDir === "S" && rDownSteps >= 2) {
+          rDir = "W";
+        }
+
+        if (rDir === "E") {
+          const isHoriz = !isDbl;
+          const halfW = isHoriz ? 27 : 14;
+          const halfH = isHoriz ? 14 : 27;
+          rx += rPrevHalfW + halfW + 2;
+          placed.push({ first: t.left, second: t.right, skin: t.skin, isHorizontal: isHoriz, x: rx, y: ry });
+          rPrevHalfW = halfW;
+          rPrevHalfH = halfH;
+        } else if (rDir === "S") {
+          const isHoriz = isDbl;
+          const halfW = isHoriz ? 27 : 14;
+          const halfH = isHoriz ? 14 : 27;
+          ry += rPrevHalfH + halfH + 2;
+          placed.push({ first: t.left, second: t.right, skin: t.skin, isHorizontal: isHoriz, x: rx, y: ry });
+          rPrevHalfW = halfW;
+          rPrevHalfH = halfH;
+          rDownSteps++;
+        } else if (rDir === "W") {
+          const isHoriz = !isDbl;
+          const halfW = isHoriz ? 27 : 14;
+          const halfH = isHoriz ? 14 : 27;
+          rx -= rPrevHalfW + halfW + 2;
+          // Saat berbelok ke kiri (West), ujung penghubung (t.left) berada di sisi kanan
+          placed.push({ first: t.right, second: t.left, skin: t.skin, isHorizontal: isHoriz, x: rx, y: ry });
+          rPrevHalfW = halfW;
+          rPrevHalfH = halfH;
+        }
+      }
+
+      // 3. Left branch (West -> North -> East)
+      let lx = cx;
+      let ly = cy;
+      let lPrevHalfW = rootIsDouble ? 14 : 27;
+      let lPrevHalfH = rootIsDouble ? 27 : 14;
+      let lDir = "W";
+      let lUpSteps = 0;
+
+      for (let i = gameState.rootIndex - 1; i >= 0; i--) {
+        const t = gameState.board[i];
+        const isDbl = t.left === t.right;
+
+        if (lDir === "W" && lx < cx - 165) {
+          lDir = "N";
+          lUpSteps = 0;
+        } else if (lDir === "N" && lUpSteps >= 2) {
+          lDir = "E";
+        }
+
+        if (lDir === "W") {
+          const isHoriz = !isDbl;
+          const halfW = isHoriz ? 27 : 14;
+          const halfH = isHoriz ? 14 : 27;
+          lx -= lPrevHalfW + halfW + 2;
+          placed.push({ first: t.left, second: t.right, skin: t.skin, isHorizontal: isHoriz, x: lx, y: ly });
+          lPrevHalfW = halfW;
+          lPrevHalfH = halfH;
+        } else if (lDir === "N") {
+          const isHoriz = isDbl;
+          const halfW = isHoriz ? 27 : 14;
+          const halfH = isHoriz ? 14 : 27;
+          ly -= lPrevHalfH + halfH + 2;
+          placed.push({ first: t.left, second: t.right, skin: t.skin, isHorizontal: isHoriz, x: lx, y: ly });
+          lPrevHalfW = halfW;
+          lPrevHalfH = halfH;
+          lUpSteps++;
+        } else if (lDir === "E") {
+          const isHoriz = !isDbl;
+          const halfW = isHoriz ? 27 : 14;
+          const halfH = isHoriz ? 14 : 27;
+          lx += lPrevHalfW + halfW + 2;
+          // Saat berbelok ke kanan (East) di baris atas, ujung penghubung (t.right) berada di sisi kiri
+          placed.push({ first: t.right, second: t.left, skin: t.skin, isHorizontal: isHoriz, x: lx, y: ly });
+          lPrevHalfW = halfW;
+          lPrevHalfH = halfH;
+        }
+      }
+
+      canvas.innerHTML = placed.map(item =>
+        renderDominoTileHTML(
+          item.first,
+          item.second,
+          item.skin,
+          item.isHorizontal,
+          "board-tile",
+          `left:${item.x}px; top:${item.y}px;`
+        )
+      ).join("");
+    }
+
+    function renderPipCounterBar() {
+      // Menghitung sisa kartu (dari 7 kartu per angka) yang belum turun ke meja
+      const bar = document.getElementById("pip-counter-bar");
+      let html = "";
+      for (let num = 0; num <= 6; num++) {
+        let onBoardCount = 0;
+        gameState.board.forEach(t => {
+          if (t.left === num || t.right === num) onBoardCount++;
+        });
+        const remaining = Math.max(0, 7 - onBoardCount);
+
+        const dots = PIP_MAP[num] || [];
+        const isRed = num === 1 || num === 4;
+        let dieCells = "";
+        for (let c = 0; c < 9; c++) {
+          if (dots.includes(c)) {
+            dieCells += `<span class="${isRed ? "red" : ""}"></span>`;
+          } else {
+            dieCells += `<i></i>`;
+          }
+        }
+
+        html += `
+          <div class="pip-stat-item" title="Sisa kartu angka ${num} belum turun">
+            <div class="mini-pip-die">${dieCells}</div>
+            <span>${remaining}</span>
+          </div>
+        `;
+      }
+      bar.innerHTML = html;
+    }
+
+    function buildSeatHTML(player, sideClass) {
+      if (!player) return "";
+      const rank = getRankByRP(player.rp);
+      const isTurn = !gameState.roundOver && gameState.turnIndex === player.id;
+      const roleTag = gameState.mode === "mandan"
+        ? (player.team === 1 ? `<span style="color:#64d2ff; font-size:0.65rem;">(Partner)</span>` : `<span style="color:#ff9f0a; font-size:0.65rem;">(Lawan)</span>`)
+        : "";
+
+      return `
+        <div class="seat-widget ${sideClass} ${isTurn ? "active-turn" : ""}">
+          <div class="seat-avatar ${rank.borderClass}">
+            ${player.name[0].toUpperCase()}
+            ${player.passedLast ? `<span class="pass-pill">PASS</span>` : ""}
+          </div>
+          <div>
+            <div style="font-weight:700; font-size:0.8rem;">${player.name} ${roleTag}</div>
+            <div style="font-size:0.7rem; color:#ffd60a; font-weight:700;">🪙 ${player.koin || 80}K</div>
+          </div>
+          <div class="card-count-badge" title="Sisa kartu">${player.hand.length}</div>
+        </div>
+      `;
+    }
+
     function renderGameArena() {
-      // 1. Scoreboard
+      // 1. Top Scoreboard HUD
       const sb = document.getElementById("game-scoreboard");
       if (gameState.mode === "mandan") {
         sb.innerHTML = `
@@ -1593,62 +2066,45 @@
         `).join("");
       }
 
-      // 2. Opponents / Partner Zone
-      const oppContainer = document.getElementById("opponents-container");
-      oppContainer.innerHTML = "";
-      gameState.players.slice(1).forEach(p => {
-        const rank = getRankByRP(p.rp);
-        const isTurn = !gameState.roundOver && gameState.turnIndex === p.id;
-        const roleTag = gameState.mode === "mandan"
-          ? (p.team === 1 ? `<span style="color:#64d2ff; font-size:0.72rem;">(Partner Tim 1)</span>` : `<span style="color:#ff9f0a; font-size:0.72rem;">(Tim 2)</span>`)
-          : "";
+      // 2. Seat Positioning (Top, Left, Right like Reference)
+      const topEl = document.getElementById("seat-top-container");
+      const leftEl = document.getElementById("seat-left-container");
+      const rightEl = document.getElementById("seat-right-container");
 
-        const miniCards = Array(p.hand.length).fill(`<span class="mini-card-dot"></span>`).join("");
+      if (gameState.players.length === 2) {
+        topEl.innerHTML = buildSeatHTML(gameState.players[1], "");
+        leftEl.innerHTML = "";
+        rightEl.innerHTML = "";
+      } else {
+        // 4 Pemain: Seat 1 di Kiri, Seat 2 (Partner di Mandan) di Atas, Seat 3 di Kanan
+        leftEl.innerHTML = buildSeatHTML(gameState.players[1], "seat-side");
+        topEl.innerHTML = buildSeatHTML(gameState.players[2], "");
+        rightEl.innerHTML = buildSeatHTML(gameState.players[3], "seat-side");
+      }
 
-        oppContainer.innerHTML += `
-          <div class="opponent-box ${isTurn ? "active-turn" : ""}">
-            <div style="font-weight:700; font-size:0.86rem;">${p.name} ${roleTag}</div>
-            <div style="margin: 3px 0;"><span class="rank-badge ${rank.className}" style="font-size:0.65rem; padding:2px 8px;">${rank.name}</span></div>
-            <div class="mini-cards">${miniCards}</div>
-            <div style="font-size:0.72rem; color:var(--text-secondary); margin-top:4px;">
-              ${p.passedLast ? '<span style="color:#ff9f0a;">PASS</span>' : `${p.hand.length} Kartu`}
-            </div>
-          </div>
-        `;
-      });
-
-      // 3. Board Chain
-      document.getElementById("board-left-val").textContent = gameState.leftEnd !== null ? gameState.leftEnd : "-";
-      document.getElementById("board-right-val").textContent = gameState.rightEnd !== null ? gameState.rightEnd : "-";
-
+      // 3. Center Table Status & Snake Domino Chain
       const currentPlayer = gameState.players[gameState.turnIndex];
-      const turnInd = document.getElementById("turn-indicator");
+      const centerStatus = document.getElementById("table-center-status");
       if (gameState.roundOver) {
-        turnInd.textContent = "Ronde Selesai";
-        turnInd.style.color = "#ffd60a";
+        centerStatus.textContent = "Ronde Selesai";
+        centerStatus.style.color = "#ffd60a";
       } else if (currentPlayer.id === 0) {
-        turnInd.textContent = "Giliran Anda!";
-        turnInd.style.color = "#30d158";
+        centerStatus.textContent = gameState.board.length === 0
+          ? "Giliran Anda (Wajib Kartu Balak!)"
+          : `Giliran Anda • Ujung [${gameState.leftEnd} | ${gameState.rightEnd}]`;
+        centerStatus.style.color = "#a8f0c6";
       } else {
-        turnInd.textContent = `Giliran ${currentPlayer.name}...`;
-        turnInd.style.color = "#64d2ff";
+        centerStatus.textContent = `Giliran ${currentPlayer.name}...`;
+        centerStatus.style.color = "rgba(255,255,255,0.65)";
       }
 
-      const boardEl = document.getElementById("board-chain");
-      if (gameState.board.length === 0) {
-        boardEl.innerHTML = `<span style="color:var(--text-secondary); font-size:0.85rem;">Meja kosong — letakkan kartu pertama</span>`;
-      } else {
-        boardEl.innerHTML = gameState.board.map(item => {
-          const isDouble = item.left === item.right;
-          return renderDominoTileHTML(item.left, item.right, item.skin, !isDouble);
-        }).join("");
-        boardEl.scrollLeft = boardEl.scrollWidth;
-      }
+      renderSnakeBoard();
+      renderPipCounterBar();
 
-      // 4. Player Hand
+      // 4. Bottom Player Hand
       const userPlayer = gameState.players[0];
       const isUserTurn = !gameState.roundOver && gameState.turnIndex === 0;
-      document.getElementById("player-zone").classList.toggle("active-turn", isUserTurn);
+      document.getElementById("self-profile-box").classList.toggle("active-turn", isUserTurn);
 
       const validMoves = getValidMoves(userPlayer.hand);
       const passBtn = document.getElementById("btn-pass");
@@ -1659,8 +2115,15 @@
         const playable = isUserTurn && isTilePlayable(tile);
         const cls = isUserTurn ? (playable ? "playable" : "unplayable") : "";
         const clickAttr = playable ? `onclick="onUserClickTile(${idx})"` : "";
-        return renderDominoTileHTML(tile[0], tile[1], currentUser.activeSkin, false, cls, clickAttr);
+        return renderDominoTileHTML(tile[0], tile[1], currentUser.activeSkin, false, cls, "", clickAttr);
       }).join("");
+
+      // Kartu terakhir otomatis keluar jika hanya tersisa 1 kartu dan valid (seperti di referensi)
+      if (isUserTurn && userPlayer.hand.length === 1 && validMoves.length === 1) {
+        botTimer = setTimeout(() => {
+          onUserClickTile(0);
+        }, 550);
+      }
     }
 
     function onUserClickTile(tileIndex) {
@@ -1668,6 +2131,10 @@
       const tile = gameState.players[0].hand[tileIndex];
 
       if (gameState.board.length === 0) {
+        if (!isTilePlayable(tile)) {
+          showToast("Giliran pertama hanya boleh mengeluarkan kartu balak (0–0 s/d 6–6)!");
+          return;
+        }
         executePlayTile(0, tileIndex, "right");
         return;
       }
@@ -1677,7 +2144,6 @@
       const canRight = (a === gameState.rightEnd || b === gameState.rightEnd);
 
       if (canLeft && canRight && gameState.leftEnd !== gameState.rightEnd) {
-        // Tanya pemain ingin pasang di kiri atau kanan
         showModal(`
           <h3 style="margin-bottom:8px;">Pilih Posisi Kartu [${a} | ${b}]</h3>
           <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">
@@ -1705,6 +2171,7 @@
 
       if (gameState.board.length === 0) {
         gameState.board.push({ left: a, right: b, skin });
+        gameState.rootIndex = 0;
         gameState.leftEnd = a;
         gameState.rightEnd = b;
       } else if (side === "left") {
@@ -1715,6 +2182,7 @@
           gameState.board.unshift({ left: b, right: a, skin });
           gameState.leftEnd = b;
         }
+        gameState.rootIndex += 1;
       } else {
         if (a === gameState.rightEnd) {
           gameState.board.push({ left: a, right: b, skin });
@@ -1728,7 +2196,6 @@
       player.passedLast = false;
       gameState.consecutivePasses = 0;
 
-      // Cek apakah kartu pemain habis
       if (player.hand.length === 0) {
         handleRoundEnd("domino", player);
         return;
@@ -1748,7 +2215,6 @@
       gameState.consecutivePasses++;
       showToast(`${player.name} lewat (Pass)`);
 
-      // Jika semua pemain lewat berturut-turut -> Adu Kartu!
       if (gameState.consecutivePasses >= gameState.players.length) {
         handleRoundEnd("deadlock", null);
         return;
@@ -1772,7 +2238,6 @@
           if (valid.length === 0) {
             executePass(current.id);
           } else {
-            // Pilih kartu dengan total titik terbesar agar aman saat adu kartu
             valid.sort((x, y) => (y.tile[0] + y.tile[1]) - (x.tile[0] + x.tile[1]));
             const chosen = valid[0];
             const [a, b] = chosen.tile;
@@ -1797,7 +2262,6 @@
       clearTimeout(botTimer);
       renderGameArena();
 
-      // Hitung sisa titik tiap pemain
       const results = gameState.players.map(p => ({
         player: p,
         pips: sumHandPips(p.hand),
@@ -1806,7 +2270,6 @@
 
       let roundWinner = directWinner;
       if (reason === "deadlock") {
-        // Adu kartu: titik terkecil menang
         const sorted = [...results].sort((a, b) => a.pips - b.pips || a.cardsLeft - b.cardsLeft);
         roundWinner = sorted[0].player;
       }
@@ -1827,11 +2290,9 @@
       let scoreSummaryHTML = "";
 
       if (gameState.mode === "mandan") {
-        // Mode Mandan: Gabungkan titik masing-masing tim
         const team1Pips = results.filter(r => r.player.team === 1).reduce((s, r) => s + r.pips, 0);
         const team2Pips = results.filter(r => r.player.team === 2).reduce((s, r) => s + r.pips, 0);
 
-        // Aturan: <= 9 dianggap 0 (tidak dihitung), > 9 dihitung
         const team1Added = team1Pips > 9 ? team1Pips : 0;
         const team2Added = team2Pips > 9 ? team2Pips : 0;
 
@@ -1858,7 +2319,6 @@
           userWonMatch = gameState.teamScores[1] < gameState.teamScores[2];
         }
       } else {
-        // Mode Solo (2P atau 4P): Pemenang ronde +1 Poin, target 2 Poin
         roundWinner.soloPoints += 1;
         scoreSummaryHTML = `
           <div class="liquid-card" style="padding:12px; margin-top:12px; font-size:0.85rem;">
